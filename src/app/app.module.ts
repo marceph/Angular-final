@@ -18,7 +18,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AboutmeComponent } from './components/aboutme/aboutme.component';
 import { ModalBannerComponent } from './modals/modal-banner/modal-banner.component';
 import { ModalProfileComponent } from './modals/modal-profile/modal-profile.component';
-import { ModalAboutComponent } from './modals/modal-about/modal-about.component';
 import { ModalSocialComponent } from './modals/modal-social/modal-social.component';
 import { ModalAddSkillComponent } from './modals/modal-add-skill/modal-add-skill.component';
 import { ModalEditSkillComponent } from './modals/modal-edit-skill/modal-edit-skill.component';
@@ -46,7 +45,6 @@ import { ModalEditProjectComponent } from './modals/modal-edit-project/modal-edi
     AboutmeComponent,
     ModalBannerComponent,
     ModalProfileComponent,
-    ModalAboutComponent,
     ModalSocialComponent,
     ModalAddSkillComponent,
     ModalEditSkillComponent,
