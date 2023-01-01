@@ -1,0 +1,62 @@
+/* Navbar */
+.navbar {
+    background: #000;
+}
+
+.color-sticky-navbar {
+    background: #000;
+    height: 20%;
+}
+
+.dropdown-item:hover {
+    background-color: #000;
+}
+
+.search-form-btn:hover {
+    color: #000;
+}
+
+span.navbar-toggler-icon {
+    --bs-navbar-color: #fff;
+}
+
+span.navbar-toggler-icon {
+    background-color: #FFF;
+}
+
+.search-form {
+    margin-right: 30px;
+}
+
+i {
+    color: #fff;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #223047;
+}
+
+
+/* redes */
+
+.fa-brands.fa-instagram:hover {
+    color: #8b0000;
+}
+
+.fa-brands.fa-twitter:hover {
+    color: #00acee;
+}
+
+.fa-brands.fa-github:hover {
+    color: #054a66;
+}
+
+.fa-regular.fa-envelope:hover {
+    color: #8b0000;
+}
+
+li.nav-item.list-group.list-group-horizontal {
+    --bs-list-group-color: none;
+    --bs-list-group-bg: none;
+    --bs-list-group-item-padding-y: none;
+}

@@ -1,0 +1,20 @@
+/* Dashboard */
+.m-top {
+    margin-top: 300px;
+}
+
+.tamaño-boton {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    border: ridge 10px;
+    box-shadow: 0 10px 10px 0 #000;
+}
+
+.tamaño-boton i {
+    font-size: 50px;
+}
+
+.tamaño-boton:hover {
+    margin: 1px;
+}

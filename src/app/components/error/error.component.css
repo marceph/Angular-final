@@ -1,0 +1,19 @@
+body {
+    background-image: url(../../../assets/img/dog.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #000;
+}
+
+.number {
+    margin-top: 3%;
+    font-size: 1500%;
+}
+
+.text {
+    margin-top: 2%;
+    font-size: 50px;
+}

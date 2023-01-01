@@ -1,0 +1,34 @@
+<!-- Education -->
+
+
+<section class="text-white">
+    <div class="seccion container-xxl">
+        <div class="row mb-2">
+            <h1 class="text-center py-5">Education</h1>
+            <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#modal-add-education" style="color: #fff;"><i
+                    class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+        <div class="row mt-2" *ngFor="let edu of education">
+            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-3 col-4">
+                <a target="_blank"><img [src]="edu.img" class="w-50"></a>
+                <h5>{{edu.titulo}}</h5>
+                <h6>{{edu.start}} | {{edu.end}}</h6>
+            </div>
+            <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-8 col-sm-7 col-6 mt-2">
+                <h5>{{edu.description}}</h5>
+            </div>
+            <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 col-2 p-0 d-flex">
+                <div class="p-0">
+                    <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#modal-edit-education"><i
+                            class="fa-solid fa-pencil" style="color: #fff;"></i></button>
+                </div>
+                <div class="p-0">
+                    <button type="submit" class="btn"><i class="fa-solid fa-trash-can" style="color: #fff;"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-modal-add-education></app-modal-add-education>
+<app-modal-edit-education></app-modal-edit-education>

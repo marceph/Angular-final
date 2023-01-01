@@ -1,0 +1,102 @@
+{
+    "banner": "assets/img/skynight.jpg",
+    "name": "Marcelo",
+    "surname": "Martinez",
+    "titulo": "Full Stack Developer Jr.",
+    "img": "assets/img/nino.ico",
+    "description": "Lorem ipsum dolor sit ame consectetur adipisicing elit. Exercitationem obcaecati rep ellendus tempora rem, tenetur vero accus amus inventore tempore et non optio verit atis esse nobis aspernatur eum doloribus sed debitis? Asperiores?",
+    "skills": [
+        {
+            "id": 1,
+            "skill": "HTML",
+            "porcentaje": "90"
+        },
+        {
+            "id": 2,
+            "skill": "CSS",
+            "porcentaje": "90"
+        },
+        {
+            "id": 4,
+            "skill": "BOOSTRAP",
+            "porcentaje": "80"
+        },
+        {
+            "id": 5,
+            "skill": "ANGULAR",
+            "porcentaje": "70"
+        },
+        {
+            "id": 3,
+            "skill": "JAVASCRIPT",
+            "porcentaje": "30"
+        },
+        {
+            "id": 6,
+            "skill": "JAVA",
+            "porcentaje":"30"
+        }
+    ],
+    "education": [
+        {
+            "id": 1,
+            "img": "assets/img/bachiller.jpeg",
+            "description": "Lorem ipsum dolor sit ame consectetur adipisicing elit. Exercitationem obcaecati rep ellendus tempora rem, tenetur vero accus amus inventore tempore et non optio verit atis esse nobis aspernatur eum doloribus sed debitis? Asperiores?",
+            "titulo": "Economía y Administración",
+            "start": "02-03-2015",
+            "end": "11-12-2020"
+        },
+        {
+            "id": 2,
+            "img": "assets/img/unpaz.jpeg",
+            "description": "Lorem ipsum dolor sit ame consectetur adipisicing elit. Exercitationem obcaecati rep ellendus tempora rem, tenetur vero accus amus inventore tempore et non optio verit atis esse nobis aspernatur eum doloribus sed debitis? Asperiores?",
+            "titulo": "Gestión de Tecnologías de la Información",
+            "start": "05-04-2021",
+            "end": "-"
+        },
+        {
+            "id": 3,
+            "img": "assets/img/arg_prog_logo.png",
+            "description": "Lorem ipsum dolor sit ame consectetur adipisicing elit. Exercitationem obcaecati rep ellendus tempora rem, tenetur vero accus amus inventore tempore et non optio verit atis esse nobis aspernatur eum doloribus sed debitis? Asperiores?",
+            "titulo": "Full Stack Developer Jr.",
+            "start": "28-06-2022",
+            "end": "15-01-2023"
+        }
+    ],
+    "experience": [
+        {
+            "id": 1,
+            "titulo": "Payaso",
+            "img": "assets/img/arg_prog_logo.png",
+            "start": "20-04-1994",
+            "end": "24-03-2000",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, nesciunt. Voluptate beatae nostrum dolorem facilis explicabo. Facere consequuntur, ullam, voluptas assumenda debitis velit iure, temporibus repellendus porro sunt sed odio."
+        },
+        {
+            "id": 2,
+            "titulo": "Payaso",
+            "img": "assets/img/unpaz.jpeg",
+            "start": "05-02-2032",
+            "end": "23-09-2035",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, nesciunt. Voluptate beatae nostrum dolorem facilis explicabo. Facere consequuntur, ullam, voluptas assumenda debitis velit iure, temporibus repellendus porro sunt sed odio."
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "titulo": "Payaso",
+            "img": "assets/img/arg_prog_logo.png",
+            "start": "20-04-1994",
+            "end": "24-03-2000",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, nesciunt. Voluptate beatae nostrum dolorem facilis explicabo. Facere consequuntur, ullam, voluptas assumenda debitis velit iure, temporibus repellendus porro sunt sed odio."
+        },
+        {
+            "id": 2,
+            "titulo": "Payaso",
+            "img": "assets/img/unpaz.jpeg",
+            "start": "05-02-2032",
+            "end": "23-09-2035",
+            "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, nesciunt. Voluptate beatae nostrum dolorem facilis explicabo. Facere consequuntur, ullam, voluptas assumenda debitis velit iure, temporibus repellendus porro sunt sed odio."
+        }
+    ]
+}

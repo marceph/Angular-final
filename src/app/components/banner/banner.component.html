@@ -1,0 +1,19 @@
+<!-- Banner -->
+
+<section>
+    <button type="submit" class="btn edit-ico" data-bs-toggle="modal" data-bs-target="#modal-edit-banner"><i class="fa-solid fa-pencil"></i></button>
+    <div class="container-fluid text-light">
+        <div [ngStyle]="{ 'background-image': 'url(' + banner + ')'}" id="img-fondo">
+            <div class="row">
+                <div class="col col-xl col-lg col-md col-sm">
+                    <h4 class="text-center section_home_h4">Welcome to</h4>
+                    <h1 class="section_home_h1">My Porfolio</h1>
+                    <div class="section-div-btn">
+                        <a href="#" target="_blank">download cv</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-modal-banner></app-modal-banner>

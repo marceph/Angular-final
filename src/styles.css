@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    /* background-color: #46466b; */
+    background-image: url(assets/img/fondopag2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: serif;
+}
+
+/* Responsive */
+
+/* tablet and phone */
+@media only screen and (max-width: 1020px) {
+    .navbar_pc {
+        display: none !important;
+    }
+
+    .navbar_resp {
+        display: block !important;
+    }
+    
+    .section_home_h1 {
+        text-align: center;
+    }
+}
+
+/* pc */
+@media only screen and (min-width: 1021px) {
+    .navbar_resp {
+        display: none !important;
+    }
+
+    .navbar_pc {
+        display: block !important;
+    }
+
+    .section_home_h1 {
+        text-align: center;
+    }
+}
+
+a {
+    text-decoration: none !important;
+}
