@@ -1,30 +1,44 @@
 <!-- Skill add -->
-  
+
 <div class="modal fade" id="modal-add-skill" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar habilidad</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar habilidad</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="form.valid && onEnviar($event)">
         <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="" class="form-label">Nombre de la Skill</label>
-              <input type="text" placeholder="Nombre de la Skill..." class="form-control" id=""
-                aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-              <label for="" class="form-label">Porcentaje</label>
-              <input type="number" placeholder="30%, 60%, 100%..." class="form-control" id=""
-                aria-describedby="emailHelp">
-            </div>
-          </form>
+          <div class="mb-3">
+            <label for="" class="form-label">Nombre de la Skill</label>
+            <input type="text" placeholder="Nombre de la Skill..." class="form-control" formControlName="habilidad" (ngModel)="habilidad" [class.border-danger]="HabilidadValid" [ngClass]="{'is-invalid': Porcentaje?.errors && Porcentaje?.touched, 'is-valid': !Porcentaje?.errors && Porcentaje?.touched}">
+          </div>
+          <div *ngIf="Habilidad?.errors  && Habilidad?.touched">
+            <p *ngIf="Habilidad?.hasError('required')" class="text-danger ps-1">
+              La Habilidad es requerida.
+            </p>
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Porcentaje</label>
+            <input type="number" min="0" max="100" placeholder="30%, 60%, 100%..." class="form-control" formControlName="porcentaje" (ngModel)="porcentaje" [class.border-danger]="PorcentajeValid" [ngClass]="{'is-invalid': Porcentaje?.errors && Porcentaje?.touched, 'is-valid': !Porcentaje?.errors && Porcentaje?.touched}">
+          </div>
+          <div *ngIf="Porcentaje?.errors && Porcentaje?.touched">
+            <p *ngIf="Porcentaje?.hasError('required')" class="text-danger">
+              El porcentaje es requerido.
+            </p>
+            <p *ngIf="Porcentaje?.hasError('min')" class="text-danger">
+              El porcentaje mínimo es 0.
+            </p>
+            <p *ngIf="Porcentaje?.hasError('max')" class="text-danger">
+              El porcentaje máximo es 100.
+            </p>
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary">Limpiar</button>
-          <button type="button" class="btn btn-dark">Agregar</button>
+          <button type="button" class="btn btn-secondary" (click)="limpiar()">Limpiar</button>
+          <button type="submit" class="btn btn-dark">Agregar</button>
         </div>
-      </div>
+      </form>
     </div>
+  </div>
 </div>

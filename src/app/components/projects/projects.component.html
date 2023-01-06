@@ -7,25 +7,21 @@
       <h1 class="text-center py-5">Proyectos</h1>
       <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#modal-add-project" style="color: #fff;"><i class="fa-solid fa-plus"></i></button>
     </div>
-    <div class="row mt-2">
+    <div *ngFor="let proye of proyectos" class="row mt-2">
       <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-3 col-4">
-        <a target="_blank"><img src="assets/img/arg_prog_logo.png" class="w-50"></a>
-        <a href="#"><h5>Yo Programo</h5></a>
-        <h6>Fin: 15-01-2023</h6>
+        <img [src]="proye.logo" class="w-50">
+        <a [href]="proye.link" target="_blank"><h5>{{proye.proyecto}}</h5></a>
+        <h6>Fin: {{proye.fin | date:"dd-MM-yyyy"}}</h6>
       </div>
       <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-8 col-sm-7 col-6 mt-2">
-        <h5>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Quis, nesciunt. Voluptate beatae nostrum dolorem facilis explicabo.
-          Facere consequuntur, ullam, voluptas assumenda debitis velit iure,
-          temporibus repellendus porro sunt sed odio.
-        </h5>
+        <h5>{{proye.description}}</h5>
       </div>
       <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 col-2 p-0 d-flex">
         <div class="p-0">
           <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#modal-edit-project" style="color: #fff;"><i class="fa-solid fa-pencil"></i></button>
         </div>
         <div class="p-0">
-          <button type="submit" class="btn"><i class="fa-solid fa-trash-can" style="color: #fff;"></i></button>
+          <button type="submit" class="btn" (click)="delete(proye.id)"><i class="fa-solid fa-trash-can" style="color: #fff;"></i></button>
         </div>
       </div>
     </div>

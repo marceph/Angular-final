@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PorfolioService } from 'src/app/services/porfolio.service';
+import { Experiencia } from 'src/app/models/experiencia';
+import { ExperienciaService } from 'src/app/services/experiencia.service';
 
 @Component({
   selector: 'app-experience',
@@ -7,16 +8,28 @@ import { PorfolioService } from 'src/app/services/porfolio.service';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent implements OnInit {
-  experience: any;
+  experience: Experiencia[]=[];
 
-  constructor(private porfolioService: PorfolioService) { }
+  constructor(private sExperiencia:ExperienciaService) { }
 
   ngOnInit(): void {
-    //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
-    this.porfolioService.getDatos().subscribe(data => {
-      //asignacion de variables
-      this.experience = data.experience;
-    });
+    this.cargarExperiencia();
+  }
+
+  cargarExperiencia():void{
+    this.sExperiencia.lista().subscribe(data => {
+      this.experience=data;
+    })
+  }
+
+  delete(id:number){
+    if(id != undefined){
+      this.sExperiencia.delete(id).subscribe(data => {
+        this.cargarExperiencia();
+      }, err => {
+        window.location.reload();
+      })
+    }
   }
 
 }

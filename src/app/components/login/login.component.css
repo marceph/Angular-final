@@ -5,6 +5,13 @@ body {
     min-height: 100vh
 }
 
+.error {
+    color: red
+}
+
+.border-danger {
+    border-color: red;
+}
 
 .formulario {
     background: #000000bb;
@@ -15,15 +22,15 @@ body {
 }
 
 .form-control {
-    color: #000 !important;
+    color: #000;
 }
 
 .ingresar {
-    background: #223047 !important;
+    background: #223047;
     padding: .625rem;
     font-size: 16px;
-    font-weight: 700 !important;
-    color: #fff !important;
+    font-weight: 700;
+    color: #fff;
     box-shadow: 0 0 1.875rem #000;
     transition: 0.1s;
 }
@@ -46,7 +53,7 @@ body {
     color: #fff;
     text-decoration: none;
     font-size: 1.125rem;
-    font-weight: 700!important;
+    font-weight: 700;
     padding: 0.375rem;
     border-radius: 0.313rem;
     background: #223047;

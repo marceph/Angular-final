@@ -27,6 +27,7 @@ import { ModalAddExperienceComponent } from './modals/modal-add-experience/modal
 import { ModalEditExperienceComponent } from './modals/modal-edit-experience/modal-edit-experience.component';
 import { ModalAddProjectComponent } from './modals/modal-add-project/modal-add-project.component';
 import { ModalEditProjectComponent } from './modals/modal-edit-project/modal-edit-project.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,9 @@ import { ModalEditProjectComponent } from './modals/modal-edit-project/modal-edi
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

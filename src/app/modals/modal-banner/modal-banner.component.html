@@ -11,11 +11,16 @@
           <form>
           <div class="mb-3">
             <label for="" class="form-label">Banner</label>
-            <input type="file" class="form-control" id="" aria-describedby="emailHelp">
+            <input type="file" class="form-control" formControlName="habilidad" [(ngModel)]="banner">
+          </div>
+          <div *ngIf="Banner?.errors  && Banner?.touched">
+            <p *ngIf="Banner?.hasError('required')" class="text-danger ps-1">
+              El banner es requerido.
+            </p>
           </div>
           <div class="mb-3">
             <label for="" class="form-label">CV</label>
-            <input type="file" class="form-control" id="" aria-describedby="emailHelp">
+            <input type="file" class="form-control">
           </div>
         </form>
         </div>

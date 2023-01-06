@@ -1,44 +1,92 @@
 <!-- Profile -->
 
 <div class="modal fade" id="modal-edit-profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Perfil</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Perfil</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
         <div class="modal-body">
-          <form>
           <div class="mb-3">
             <label for="" class="form-label">Nombre(s)</label>
-            <input type="text" placeholder="Ingrese su Nombre..." class="form-control" id="" aria-describedby="emailHelp">
+            <input type="text" placeholder="Ingrese su Nombre..." class="form-control" formControlName="nombre" (ngModel)="Nombre" [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched, 'is-valid': !Nombre?.errors && Nombre?.touched}">
+          </div>
+          <div *ngIf="Nombre?.errors  && Nombre?.touched">
+            <p *ngIf="Nombre?.hasError('required')" class="text-danger ps-1">
+              El nombre es requerido.
+            </p>
           </div>
           <div class="mb-3">
             <label for="" class="form-label">Apellido(s)</label>
-            <input type="text" placeholder="Ingrese su Apellido..." class="form-control" id="" aria-describedby="emailHelp">
+            <input type="text" placeholder="Ingrese su Apellido..." class="form-control" formControlName="apellido" (ngModel)="Apellido" [ngClass]="{'is-invalid': Apellido?.errors && Apellido?.touched, 'is-valid': !Apellido?.errors && Apellido?.touched}">
+          </div>
+          <div *ngIf="Apellido?.errors  && Apellido?.touched">
+            <p *ngIf="Apellido?.hasError('required')" class="text-danger ps-1">
+              El apellido es requerido.
+            </p>
           </div>
           <div class="mb-3">
             <label for="" class="form-label">Profesión</label>
-            <input type="text" placeholder="Ingrese su Profesión..." class="form-control" id="" aria-describedby="emailHelp">
+            <input type="text" placeholder="Ingrese su Profesión..." class="form-control" formControlName="titulo" (ngModel)="Titulo" [ngClass]="{'is-invalid': Titulo?.errors && Titulo?.touched, 'is-valid': !Titulo?.errors && Titulo?.touched}">
+          </div>
+          <div *ngIf="Titulo?.errors  && Titulo?.touched">
+            <p *ngIf="Titulo?.hasError('required')" class="text-danger ps-1">
+              La Profesión es requerida.
+            </p>
           </div>
           <div class="mb-3">
             <label for="" class="form-label">Username</label>
-            <input type="text" placeholder="Ingrese su Nombre de Usuario..." class="form-control" id="" aria-describedby="emailHelp">
+            <input type="text" placeholder="Ingrese su Nombre de Usuario..." class="form-control" formControlName="username" (ngModel)="Username" [ngClass]="{'is-invalid': Username?.errors && Username?.touched, 'is-valid': !Username?.errors && Username?.touched}">
+          </div>
+          <div *ngIf="Username?.errors  && Username?.touched">
+            <p *ngIf="Username?.hasError('required')" class="text-danger ps-1">
+              El Nombre de Usuario es requerido.
+            </p>
           </div>
           <div class="mb-3">
             <label for="" class="form-label">Foto de perfil</label>
-            <input type="file" class="form-control" id="" aria-describedby="emailHelp">
+            <input type="file" class="form-control" formControlName="img" (ngModel)="Img" [ngClass]="{'is-invalid': Img?.errors && Img?.touched, 'is-valid': !Img?.errors && Img?.touched}">
+          </div>
+          <div *ngIf="Img?.errors  && Img?.touched">
+            <p *ngIf="Img?.hasError('required')" class="text-danger ps-1">
+              La foto de perfil es requerida.
+            </p>
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Banner</label>
+            <input type="file" class="form-control" formControlName="banner" (ngModel)="Banner" [ngClass]="{'is-invalid': Banner?.errors && Banner?.touched, 'is-valid': !Banner?.errors && Banner?.touched}">
+          </div>
+          <div *ngIf="Banner?.errors  && Banner?.touched">
+            <p *ngIf="Banner?.hasError('required')" class="text-danger ps-1">
+              El banner es requerido.
+            </p>
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">CV</label>
+            <input type="file" class="form-control" formControlName="cv" (ngModel)="Cv" [ngClass]="{'is-invalid': Cv?.errors && Cv?.touched, 'is-valid': !Cv?.errors && Cv?.touched}">
+          </div>
+          <div *ngIf="Cv?.errors  && Cv?.touched">
+            <p *ngIf="Cv?.hasError('required')" class="text-danger ps-1">
+              El cv es requerido.
+            </p>
           </div>
           <div class="mb-3">
             <h6>Descripción</h6>
-            <textarea name="" id="" placeholder="Descripción breve..." cols="50" rows="3"></textarea>
+            <textarea placeholder="Descripción breve..." cols="50" rows="3" formControlName="aboutme" (ngModel)="Aboutme" [ngClass]="{'is-invalid': Aboutme?.errors && Aboutme?.touched, 'is-valid': !Aboutme?.errors && Aboutme?.touched}"></textarea>
           </div>
-        </form>
+          <div *ngIf="Aboutme?.errors  && Aboutme?.touched">
+            <p *ngIf="Aboutme?.hasError('required')" class="text-danger ps-1">
+              La descripción es requerida.
+            </p>
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary">Limpiar</button>
-          <button type="button" class="btn btn-dark">Guardar</button>
+          <button type="button" class="btn btn-secondary" (click)="limpiar()">Limpiar</button>
+          <button type="submit" class="btn btn-dark">Editar</button>
         </div>
-      </div>
+      </form>
     </div>
+  </div>
 </div>

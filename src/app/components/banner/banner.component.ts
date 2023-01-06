@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PorfolioService } from 'src/app/services/porfolio.service';
+import { Persona } from 'src/app/models/persona';
+import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
   selector: 'app-banner',
@@ -7,16 +8,18 @@ import { PorfolioService } from 'src/app/services/porfolio.service';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
-  banner: string="";
+  persona?: Persona;
 
-  constructor(private porfolioService: PorfolioService) { }
+  constructor(private sPersona:PersonaService) { }
 
   ngOnInit(): void {
-    //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
-    this.porfolioService.getDatos().subscribe(data => {
-      //asignacion de variables
-      this.banner = data.banner;
-    });
+    this.cargarPersona();
+  }
+
+  cargarPersona():void{
+    this.sPersona.ver(5).subscribe(data => {
+      this.persona=data
+    })
   }
 
 }

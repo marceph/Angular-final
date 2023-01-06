@@ -28,24 +28,16 @@
                 <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
                 <button class="btn btn-outline-success btn-outline-light search-form-btn" type="submit">Search</button>
             </form>
-            <li class="nav-item list-group list-group-horizontal">
-                <a href="#" target="_blank" title="Instagram">
-            <li class="list-group-item"><i class="fa-brands fa-instagram fa-xl mx-2"></i></li></a>
-            <a href="#" target="_blank" title="Twitter">
-                <li class="list-group-item"><i class="fa-brands fa-twitter fa-xl mx-2"></i></li>
-            </a>
-            <a href="#" target="_blank" title="GitHub">
-                <li class="list-group-item"><i class="fa-brands fa-github fa-xl mx-2"></i></li>
-            </a>
-            <a href="#" target="_blank" title="Email">
-                <li class="list-group-item"><i class="fa-regular fa-envelope fa-xl mx-2"></i></li>
-            </a>
+            <li *ngFor="let red of redes" class="nav-item list-group list-group-horizontal">
+                <a [href]="red.link" target="_blank" [title]="red.red">
+                    <li class="list-group-item"><i [ngClass]="red.icono" class="fa-xl mx-2"></i></li>
+                </a>
             </li>
             <button type="submit" class="btn ms-2" data-bs-toggle="modal" data-bs-target="#modal-add-social"><i
                     class="fa-solid fa-plus"></i></button>
             <div class="btn-group ms-4 pe-4" role="group">
                 <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false">Username</button>
+                    aria-expanded="false">{{persona?.username}}</button>
                 <ul class="dropdown-menu bg-dark">
                     <li><a class="dropdown-item text-white" routerLink="/">Profile</a></li>
                     <li><a class="dropdown-item text-white" routerLink="/login">Login In</a></li>
@@ -64,12 +56,12 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
             aria-controls="offcanvasDarkNavbar">
             <span type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">Username</span>
+                aria-expanded="false">{{persona?.username}}</span>
         </button>
         <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
             aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Username</h5>
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">{{persona?.username}}</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
@@ -96,13 +88,9 @@
                             Contact
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item text-white" href="#">Instagram</a></li>
-                            <li><a class="dropdown-item text-white" href="#">Twitter</a></li>
-                            <li><a class="dropdown-item text-white" href="#">Email</a></li>
-                            <li>
-                                <hr class="dropdown-divider text-white">
+                            <li *ngFor="let red of redes">
+                                <a class="dropdown-item text-white" target="_blank" [href]="red.link">{{red.red}}</a>
                             </li>
-                            <li><a class="dropdown-item text-white" href="#">GitHub</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

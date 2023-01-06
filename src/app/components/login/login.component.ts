@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PorfolioService } from 'src/app/services/porfolio.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Persona } from 'src/app/models/persona';
+import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
   selector: 'app-login',
@@ -7,16 +9,49 @@ import { PorfolioService } from 'src/app/services/porfolio.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  banner: string="";
+  persona?: Persona;
+  form:FormGroup;
 
-  constructor(private porfolioService: PorfolioService) { }
+  constructor(private sPersona:PersonaService, private formBuilder:FormBuilder) {
+    this.form = this.formBuilder.group({
+      password:['',[Validators.required, Validators.minLength(8)]],
+      email:['',[Validators.required, Validators.email]]
+    })
+  }
 
   ngOnInit(): void {
-    //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
-    this.porfolioService.getDatos().subscribe(data => {
-      //asignacion de variables
-      this.banner = data.banner;
-    });
+    this.cargarPersona();
+  }
+
+  get Password(){
+    return this.form.get("password");
+  }
+ 
+  get Email(){
+   return this.form.get("email");
+  }
+
+  get PasswordValid(){
+    return this.Password?.touched && !this.Password?.valid;
+  }
+
+  get EmailValid(){
+    return this.Email?.touched && !this.Email?.valid;
+  }
+
+  cargarPersona():void{
+    this.sPersona.ver(5).subscribe(data => {
+      this.persona=data
+    })
+  }
+
+  onEnviar(event: Event){
+    event.preventDefault;
+    if (this.form.valid){
+      alert("Todo salio bien ¡Enviar formuario!");
+    }else{   
+      this.form.markAllAsTouched();
+    }
   }
 
 }
