@@ -89,7 +89,8 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li *ngFor="let red of redes">
-                                <a class="dropdown-item text-white" target="_blank" [href]="red.link">{{red.red}}</a>
+                                <a class="dropdown-item text-white d-inline" target="_blank" [href]="red.link">{{red.red}}</a>
+                                <button type="submit" class="btn" (click)="delete(red.id)"><i class="fa-solid fa-trash-can" style="color: #fff;"></i></button>
                             </li>
                         </ul>
                     </li>

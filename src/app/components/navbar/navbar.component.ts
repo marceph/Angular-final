@@ -32,4 +32,14 @@ export class NavbarComponent implements OnInit {
     })
   }
 
+  delete(id:number){
+    if(id != undefined){
+      this.sRed.delete(id).subscribe(data => {
+        this.cargarRedes();
+      }, err => {
+        window.location.reload();
+      })
+    }
+  }
+
 }
