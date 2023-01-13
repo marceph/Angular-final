@@ -9,6 +9,9 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  //variable temporal
+  personas: Persona[]=[];
+  
   persona?: Persona;
   form:FormGroup;
 
@@ -39,9 +42,18 @@ export class LoginComponent implements OnInit {
     return this.Email?.touched && !this.Email?.valid;
   }
 
+  // cargarPersona():void{
+  //   this.sPersona.ver(5).subscribe(data => {
+  //     this.persona=data
+  //   })
+  // }
+
+  //Carga temporal de persona
   cargarPersona():void{
-    this.sPersona.ver(5).subscribe(data => {
-      this.persona=data
+    this.sPersona.lista().subscribe(data => {
+      this.personas=data
+      let id = this.personas.length;
+      this.sPersona.ver(id).subscribe(data=>{this.persona=data})
     })
   }
 

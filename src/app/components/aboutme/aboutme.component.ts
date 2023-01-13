@@ -17,7 +17,7 @@ export class AboutmeComponent implements OnInit {
   }
 
   cargarPersona():void{
-    this.sPersona.ver(5).subscribe(data => {
+    this.sPersona.ver(1).subscribe(data => {
       this.persona=data
     })
   }

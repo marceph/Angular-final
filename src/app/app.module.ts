@@ -16,7 +16,6 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { ErrorComponent } from './components/error/error.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutmeComponent } from './components/aboutme/aboutme.component';
-import { ModalBannerComponent } from './modals/modal-banner/modal-banner.component';
 import { ModalProfileComponent } from './modals/modal-profile/modal-profile.component';
 import { ModalSocialComponent } from './modals/modal-social/modal-social.component';
 import { ModalAddSkillComponent } from './modals/modal-add-skill/modal-add-skill.component';
@@ -44,7 +43,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ErrorComponent,
     FooterComponent,
     AboutmeComponent,
-    ModalBannerComponent,
     ModalProfileComponent,
     ModalSocialComponent,
     ModalAddSkillComponent,

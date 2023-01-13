@@ -12,6 +12,7 @@ import { PersonaService } from 'src/app/services/persona.service';
 export class ModalProfileComponent implements OnInit {
   form: FormGroup;
   persona?: Persona;
+  perso: Persona= new Persona("","","","","","","","");
 
   constructor(private formBuilder: FormBuilder, private sPersona:PersonaService, private activatedRoute:ActivatedRoute, private router:Router) {
     this.form=this.formBuilder.group({
@@ -27,13 +28,15 @@ export class ModalProfileComponent implements OnInit {
    }
 
    ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params['id'];
-    // this.sPersona.ver(1).subscribe(data => {
-    this.sPersona.ver(id).subscribe(data => {
-      this.persona=data;
-    },err => {
-      this.router.navigate(['']);
-    });
+    const id = this.activatedRoute.params.subscribe(p => {
+      let id = p['id'];
+      if(id){
+        this.sPersona.ver(id).subscribe(per => {
+          this.perso = per
+        });
+      }
+    }
+    );
   }
 
   get Nombre(){
@@ -68,17 +71,17 @@ export class ModalProfileComponent implements OnInit {
     return this.form.get("cv");
   }
 
-  onEditar():void{
-    this.sPersona.update(this.form.value).subscribe(data => {
-      alert("Persona editada.");
-    })
+  onEdit():void{
+    this.sPersona.update(this.perso).subscribe(data => {
+    });
   }
 
   onEnviar(event:Event){
     event.preventDefault;
     if (this.form.valid){
-      this.onEditar();
-      window.location.reload();
+      this.onEdit();
+      alert("Persona editada.");
+      this.router.navigate(['']);
     }else{
       alert("falló en la carga, intente nuevamente");
       this.form.markAllAsTouched();

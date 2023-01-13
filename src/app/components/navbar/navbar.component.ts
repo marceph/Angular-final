@@ -10,6 +10,9 @@ import { RedService } from 'src/app/services/red.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  //variable temporal
+  personas: Persona[]=[];
+
   persona?: Persona;
   redes: Red[]=[];
 
@@ -20,9 +23,18 @@ export class NavbarComponent implements OnInit {
     this.cargarRedes();
   }
 
+  // cargarPersona():void{
+  //   this.sPersona.ver(5).subscribe(data => {
+  //     this.persona=data
+  //   })
+  // }
+
+  //Carga temporal de persona
   cargarPersona():void{
-    this.sPersona.ver(1).subscribe(data => {
-      this.persona=data
+    this.sPersona.lista().subscribe(data => {
+      this.personas=data
+      let id = this.personas.length;
+      this.sPersona.ver(id).subscribe(data=>{this.persona=data})
     })
   }
 

@@ -13,10 +13,10 @@ export class ModalAddProjectComponent implements OnInit {
   constructor(private sProyecto:ProyectoService, private formBuilder:FormBuilder) {
     this.form = this.formBuilder.group({
       proyecto:['',[Validators.required]],
-      fin:[''],
+      fin:['',[Validators.required]],
       description:['',[Validators.required]],
       link:[''],
-      logo:['']
+      logo:['',[Validators.required]]
     })
   }
 
@@ -33,8 +33,16 @@ export class ModalAddProjectComponent implements OnInit {
     return this.form.get("proyecto");
   }
 
+  get Fin(){
+    return this.form.get("fin");
+  }
+
   get Description(){
     return this.form.get("description");
+  }
+
+  get Logo(){
+    return this.form.get("logo");
   }
 
   onEnviar(event:Event){
