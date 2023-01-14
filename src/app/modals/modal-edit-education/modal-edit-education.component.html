@@ -18,7 +18,7 @@
     </div>
     <div class="mb-3">
       <label for="" class="form-label">Título</label>
-      <input type="text" class="form-control" formControlName="estudio" value="{{estu.titulo}" [(ngModel)]="estu.estudio" [ngClass]="{'is-invalid': Estudio?.errors && Estudio?.touched, 'is-valid': !Estudio?.errors && Estudio?.touched}">
+      <input type="text" class="form-control" formControlName="estudio" value="{{estu.estudio}}" [(ngModel)]="estu.estudio" [ngClass]="{'is-invalid': Estudio?.errors && Estudio?.touched, 'is-valid': !Estudio?.errors && Estudio?.touched}">
     </div>
     <div *ngIf="Estudio?.errors  && Estudio?.touched">
       <p *ngIf="Estudio?.hasError('required')" class="text-danger ps-1">
