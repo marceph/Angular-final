@@ -7,7 +7,7 @@ import { Skill } from '../models/skill';
   providedIn: 'root'
 })
 export class SkillService {
-  url = 'http://localhost:8080/skill/';
+  url = 'https://marceph.onrender.com/skill/'; //https://marceph.onrender.com  //http://localhost:8080
 
   constructor(private httpClient:HttpClient) { }
 

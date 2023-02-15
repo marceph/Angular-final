@@ -7,7 +7,7 @@ import { Proyecto } from '../models/proyecto';
   providedIn: 'root'
 })
 export class ProyectoService {
-  url = 'http://localhost:8080/proyecto/';
+  url = 'https://marceph.onrender.com/proyecto/'; //https://marceph.onrender.com  //http://localhost:8080
   constructor(private httpClient:HttpClient) { }
 
   public lista():Observable<Proyecto[]>{
