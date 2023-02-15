@@ -9,11 +9,19 @@ import { EstudioService } from 'src/app/services/estudio.service';
 })
 export class EducationComponent implements OnInit {
   education: Estudio[]=[];
+  modoEdit: any;
 
   constructor(private sEstudio:EstudioService) { }
 
   ngOnInit(): void {
     this.cargarEstudio();
+    if(sessionStorage.getItem('currentUser') == "null"){
+      this.modoEdit = false;
+    } else if(sessionStorage.getItem('currentUser') == null){
+      this.modoEdit = false;
+    } else {
+      this.modoEdit = true;
+    }
   }
 
   cargarEstudio():void{

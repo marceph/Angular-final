@@ -9,11 +9,19 @@ import { ExperienciaService } from 'src/app/services/experiencia.service';
 })
 export class ExperienceComponent implements OnInit {
   experience: Experiencia[]=[];
+  modoEdit: any;
 
   constructor(private sExperiencia:ExperienciaService) { }
 
   ngOnInit(): void {
     this.cargarExperiencia();
+    if(sessionStorage.getItem('currentUser') == "null"){
+      this.modoEdit = false;
+    } else if(sessionStorage.getItem('currentUser') == null){
+      this.modoEdit = false;
+    } else {
+      this.modoEdit = true;
+    }
   }
 
   cargarExperiencia():void{

@@ -9,11 +9,19 @@ import { SkillService } from 'src/app/services/skill.service';
 })
 export class SkillsComponent implements OnInit {
   skills: Skill[]=[];
+  modoEdit: any;
 
   constructor(private sSkill:SkillService) { }
 
   ngOnInit(): void {
     this.loadSkill();
+    if(sessionStorage.getItem('currentUser') == "null"){
+      this.modoEdit = false;
+    } else if(sessionStorage.getItem('currentUser') == null){
+      this.modoEdit = false;
+    } else {
+      this.modoEdit = true;
+    }
   }
 
   loadSkill():void{

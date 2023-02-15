@@ -5,7 +5,7 @@
     <div class="seccion container-xxl">
         <div class="row mb-2">
             <h1 class="text-center py-5">Education</h1>
-            <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#modal-add-education" style="color: #fff;"><i
+            <button *ngIf="modoEdit" type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#modal-add-education" style="color: #fff;"><i
                     class="fa-solid fa-plus"></i>
             </button>
         </div>
@@ -20,10 +20,10 @@
             </div>
             <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 col-2 p-0 d-flex">
                 <div class="p-0">
-                    <button type="submit" class="btn" routerLink="editEducation/{{edu.id}}"><i class="fa-solid fa-pencil" style="color: #fff;"></i></button>
+                    <button *ngIf="modoEdit" type="submit" class="btn" routerLink="editEducation/{{edu.id}}"><i class="fa-solid fa-pencil" style="color: #fff;"></i></button>
                 </div>
                 <div class="p-0">
-                    <button type="submit" class="btn" (click)="delete(edu.id)"><i class="fa-solid fa-trash-can" style="color: #fff;"></i></button>
+                    <button *ngIf="modoEdit" type="submit" class="btn" (click)="delete(edu.id)"><i class="fa-solid fa-trash-can" style="color: #fff;"></i></button>
                 </div>
             </div>
         </div>

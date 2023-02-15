@@ -10,10 +10,11 @@ import { ModalEditExperienceComponent } from './modals/modal-edit-experience/mod
 import { ModalEditProjectComponent } from './modals/modal-edit-project/modal-edit-project.component';
 import { ModalEditSkillComponent } from './modals/modal-edit-skill/modal-edit-skill.component';
 import { ModalProfileComponent } from './modals/modal-profile/modal-profile.component';
+import { GuardGuard } from './services/guard.guard';
 
 const routes: Routes = [
   {path: '', component:IndexComponent},
-  {path: 'login', component:LoginComponent},
+  {path: 'login', component:LoginComponent, canActivate: [GuardGuard]},
   {path: 'dashboard', component:DashboardComponent},
   {path: 'projects', component:ProjectsComponent},
   {path: 'editProfile/:id', component:ModalProfileComponent},

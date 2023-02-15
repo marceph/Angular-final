@@ -12,7 +12,7 @@ import { PersonaService } from 'src/app/services/persona.service';
 export class ModalProfileComponent implements OnInit {
   form: FormGroup;
   persona?: Persona;
-  perso: Persona= new Persona("","","","","","","","");
+  perso: Persona= new Persona("","","","","","","","","","");
 
   constructor(private formBuilder: FormBuilder, private sPersona:PersonaService, private activatedRoute:ActivatedRoute, private router:Router) {
     this.form=this.formBuilder.group({
