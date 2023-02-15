@@ -1,5 +1,5 @@
-<body [ngStyle]="{ 'background-image': 'url(' + persona?.banner + ')'}">
-    <app-navbar></app-navbar>
+<app-navbar></app-navbar>
+<body [ngStyle]="{ 'background-image': 'url(' + persona.banner + ')'}">
     <div class="container">
         <div class="row justify-content-center pt-5 mt-5 m-5">
             <div class="col-xl-4 formulario">
@@ -8,25 +8,25 @@
                         <h1 class="text-light">Welcome</h1>
                     </div>
                     <div class="mx-sm-4 pt-4">
-                        <input type="email" class="form-control" placeholder="Email" formControlName="email" [class.border-danger]="EmailValid">
+                        <input type="email" class="form-control" placeholder="Email" formControlName="email" [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched}">
                     </div>
                     <div *ngIf="Email?.errors  && Email?.touched">
-                        <p *ngIf="Email?.hasError('required')" class="error ps-4">
+                        <p *ngIf="Email?.hasError('required')" class="text-danger ps-4">
                             El email es requerido.
                         </p>
-                        <p *ngIf="Email?.hasError('email')" class="error ps-4">
+                        <p *ngIf="Email?.hasError('email')" class="text-danger ps-4">
                             El formato del email debe ser válido.
                         </p>
                     </div>
                     <div class="mx-sm-4 mt-4 pb-3">
-                        <input type="password" class="form-control" placeholder="Password" formControlName="password" [class.border-danger]="PasswordValid">
+                        <input type="password" class="form-control" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 'is-valid': !Password?.errors && Password?.touched}">
                     </div>
                     <div *ngIf="Password?.errors  && Password?.touched">
-                        <p *ngIf="Password?.hasError('required')" class="error ps-4">
+                        <p *ngIf="Password?.hasError('required')" class="text-danger ps-4">
                             El password es requerido.
                         </p>
-                        <p *ngIf="Password?.hasError('minlength')" class="error ps-4">
-                            El password debe ser de 8 o más caracteres.
+                        <p *ngIf="Password?.hasError('minlength')" class="text-danger ps-4">
+                            El password debe ser de 4 o más caracteres.
                         </p>
                     </div>
                     <div class="mx-sm-4 mt-3 pb-3 d-grid">
@@ -35,9 +35,6 @@
                     <div class="mx-sm-4 pb-5 text-end">
                         <span class=""><a href="#" class="olvide">Forgot password?</a></span>
                     </div>
-                    <!-- <div class="text-center pb-4">
-                        <span><a href="" class="register">Register</a></span>
-                    </div> -->
                 </form>
             </div>
         </div>

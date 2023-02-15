@@ -8,6 +8,8 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
+  //variable temporal
+  personas: Persona[]=[];
   persona?: Persona;
 
   constructor(private sPersona:PersonaService) { }
@@ -16,9 +18,18 @@ export class BannerComponent implements OnInit {
     this.cargarPersona();
   }
 
+  // cargarPersona():void{
+  //   this.sPersona.ver(5).subscribe(data => {
+  //     this.persona=data
+  //   })
+  // }
+
+  //Carga temporal de persona
   cargarPersona():void{
-    this.sPersona.ver(5).subscribe(data => {
-      this.persona=data
+    this.sPersona.lista().subscribe(data => {
+      this.personas=data
+      let id = this.personas.length;
+      this.sPersona.ver(id).subscribe(data=>{this.persona=data})
     })
   }
 

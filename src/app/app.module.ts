@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +16,6 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { ErrorComponent } from './components/error/error.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutmeComponent } from './components/aboutme/aboutme.component';
-import { ModalBannerComponent } from './modals/modal-banner/modal-banner.component';
 import { ModalProfileComponent } from './modals/modal-profile/modal-profile.component';
 import { ModalSocialComponent } from './modals/modal-social/modal-social.component';
 import { ModalAddSkillComponent } from './modals/modal-add-skill/modal-add-skill.component';
@@ -28,6 +27,8 @@ import { ModalEditExperienceComponent } from './modals/modal-edit-experience/mod
 import { ModalAddProjectComponent } from './modals/modal-add-project/modal-add-project.component';
 import { ModalEditProjectComponent } from './modals/modal-edit-project/modal-edit-project.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PersonaService } from './services/persona.service';
+import { InterceptorService } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ErrorComponent,
     FooterComponent,
     AboutmeComponent,
-    ModalBannerComponent,
     ModalProfileComponent,
     ModalSocialComponent,
     ModalAddSkillComponent,
@@ -63,7 +63,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [PersonaService,
+    { provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

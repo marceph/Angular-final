@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Habilidad } from 'src/app/models/habilidad';
-import { HabilidadService } from 'src/app/services/habilidad.service';
+import { Skill } from 'src/app/models/skill';
+import { SkillService } from 'src/app/services/skill.service';
 
 @Component({
   selector: 'app-skills',
@@ -8,24 +8,32 @@ import { HabilidadService } from 'src/app/services/habilidad.service';
   styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit {
-  skills: Habilidad[]=[];
+  skills: Skill[]=[];
+  modoEdit: any;
 
-  constructor(private sHabilidad:HabilidadService) { }
+  constructor(private sSkill:SkillService) { }
 
   ngOnInit(): void {
-    this.cargarHabilidad();
+    this.loadSkill();
+    if(sessionStorage.getItem('currentUser') == "null"){
+      this.modoEdit = false;
+    } else if(sessionStorage.getItem('currentUser') == null){
+      this.modoEdit = false;
+    } else {
+      this.modoEdit = true;
+    }
   }
 
-  cargarHabilidad():void{
-    this.sHabilidad.lista().subscribe(data => {
+  loadSkill():void{
+    this.sSkill.list().subscribe(data => {
       this.skills=data
     });
   }
 
   delete(id:number){
     if(id != undefined){
-      this.sHabilidad.delete(id).subscribe(data => {
-        this.cargarHabilidad();
+      this.sSkill.delete(id).subscribe(data => {
+        this.loadSkill();
       }, err => {
         window.location.reload();
       })

@@ -7,7 +7,7 @@ import { Estudio } from '../models/estudio';
   providedIn: 'root'
 })
 export class EstudioService {
-  url = 'http://localhost:8080/estudio/';
+  url = 'https://marceph.onrender.com/estudio/'; //https://marceph.onrender.com  //http://localhost:8080
   constructor(private httpClient:HttpClient) { }
 
   public lista():Observable<Estudio[]>{

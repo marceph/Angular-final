@@ -32,6 +32,10 @@ i {
     color: #fff;
 }
 
+.dropdown-menu li button:hover {
+    background-color: #223047;
+}
+
 .dropdown-menu li a:hover {
     background-color: #223047;
 }

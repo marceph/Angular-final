@@ -9,11 +9,19 @@ import { ProyectoService } from 'src/app/services/proyecto.service';
 })
 export class ProjectsComponent implements OnInit {
   proyectos: Proyecto[]=[];
+  modoEdit: any;
 
   constructor(private sProyecto:ProyectoService) { }
 
   ngOnInit(): void {
     this.cargarProyecto();
+    if(sessionStorage.getItem('currentUser') == "null"){
+      this.modoEdit = false;
+    } else if(sessionStorage.getItem('currentUser') == null){
+      this.modoEdit = false;
+    } else {
+      this.modoEdit = true;
+    }
   }
 
   cargarProyecto():void{

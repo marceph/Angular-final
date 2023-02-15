@@ -11,7 +11,12 @@
         <div class="modal-body">
             <div class="mb-3">
               <label for="" class="form-label">Logo de experiencia</label>
-              <input type="file" class="form-control" formControlName="logo">
+              <input type="url" placeholder="Ingrese Url del la experiencia..." class="form-control" formControlName="logo" (ngModel)="Logo" [ngClass]="{'is-invalid': Logo?.errors && Logo?.touched, 'is-valid': !Logo?.errors && Logo?.touched}">
+            </div>
+            <div *ngIf="Logo?.errors  && Logo?.touched">
+              <p *ngIf="Logo?.hasError('required')" class="text-danger ps-1">
+                La imagen es requerida.
+              </p>
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Título</label>
@@ -24,11 +29,21 @@
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Inicio</label>
-              <input type="date" class="form-control" formControlName="inicio">
+              <input type="date" class="form-control" formControlName="inicio" (ngModel)="Inicio" [ngClass]="{'is-invalid': Inicio?.errors && Inicio?.touched, 'is-valid': !Inicio?.errors && Inicio?.touched}">
+            </div>
+            <div *ngIf="Inicio?.errors  && Inicio?.touched">
+              <p *ngIf="Inicio?.hasError('required')" class="text-danger ps-1">
+                La fecha es requerida.
+              </p>
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Fin</label>
-              <input type="date" class="form-control" formControlName="fin">
+              <input type="date" class="form-control" formControlName="fin" (ngModel)="Fin" [ngClass]="{'is-invalid': Fin?.errors && Fin?.touched, 'is-valid': !Fin?.errors && Fin?.touched}">
+            </div>
+            <div *ngIf="Fin?.errors  && Fin?.touched">
+              <p *ngIf="Fin?.hasError('required')" class="text-danger ps-1">
+                La fecha es requerida.
+              </p>
             </div>
             <div class="mb-3">
               <h6>Descripción</h6>

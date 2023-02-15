@@ -1,40 +1,53 @@
 <!-- Project edit -->
+<app-navbar></app-navbar>
 
-<div class="modal fade" id="modal-edit-project" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar proyecto</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-          <div class="mb-3">
-            <label for="" class="form-label">Imagen de proyecto</label>
-            <input type="file" class="form-control" id="" aria-describedby="emailHelp">
-          </div>
-          <div class="mb-3">
-            <label for="" class="form-label">Título</label>
-            <input type="text" placeholder="Título del proyecto..." class="form-control" id="" aria-describedby="emailHelp">
-          </div>
-          <div class="mb-3">
-            <label for="" class="form-label">Fin</label>
-            <input type="date" class="form-control" id="" aria-describedby="emailHelp">
-          </div>
-          <div class="mb-3">
-            <label for="" class="form-label">Link</label>
-            <input type="text" placeholder="Link del proyecto..." class="form-control" id="" aria-describedby="emailHelp">
-          </div>
-          <div class="mb-3">
-            <h6>Descripción</h6>
-            <textarea name="" id="" placeholder="Descripción del trabajo..." cols="50" rows="2"></textarea>
-          </div>
-        </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary">Limpiar</button>
-            <button type="button" class="btn btn-dark">Editar</button>
-        </div>
-      </div>
+<div class="container text-white">
+  <h1>Editar Proyecto</h1>
+  <form [formGroup]="form" (ngSubmit)="onSend($event)">
+    <div class="mb-3">
+      <label>ID: {{proye.id}}</label>
     </div>
+    <div class="mb-3">
+      <label class="form-label">Imagen de proyecto</label>
+      <input type="url" class="form-control" formControlName="logo" value="{{proye.logo}}" [(ngModel)]="proye.logo" [ngClass]="{'is-invalid': Logo?.errors && Logo?.touched, 'is-valid': !Logo?.errors && Logo?.touched}">
+    </div>
+    <div *ngIf="Logo?.errors  && Logo?.touched">
+      <p *ngIf="Logo?.hasError('required')" class="text-danger ps-1">
+        La imagen es requerida.
+      </p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Título</label>
+      <input type="text" class="form-control" formControlName="proyecto" value="{{proye.proyecto}}" [(ngModel)]="proye.proyecto" [ngClass]="{'is-invalid': Proyecto?.errors && Proyecto?.touched, 'is-valid': !Proyecto?.errors && Proyecto?.touched}">
+    </div>
+    <div *ngIf="Proyecto?.errors  && Proyecto?.touched">
+      <p *ngIf="Proyecto?.hasError('required')" class="text-danger ps-1">
+        El titulo es requerido.
+      </p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Fin</label>
+      <input type="date" class="form-control" formControlName="fin" value="{{proye.fin}}" [(ngModel)]="proye.fin" [ngClass]="{'is-invalid': Fin?.errors && Fin?.touched, 'is-valid': !Fin?.errors && Fin?.touched}">
+    </div>
+    <div *ngIf="Fin?.errors  && Fin?.touched">
+      <p *ngIf="Fin?.hasError('required')" class="text-danger ps-1">
+        La fecha es requerida.
+      </p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Link</label>
+      <input type="url" class="form-control" formControlName="link" value="{{proye.link}}" [(ngModel)]="proye.link">
+    </div>
+    <div class="mb-3">
+      <h6>Descripción</h6>
+      <textarea cols="30" rows="3" formControlName="description" value="{{proye.description}}" [(ngModel)]="proye.description" [ngClass]="{'is-invalid': Description?.errors && Description?.touched, 'is-valid': !Description?.errors && Description?.touched}"></textarea>
+    </div>
+    <div *ngIf="Description?.errors  && Description?.touched">
+      <p *ngIf="Description?.hasError('required')" class="text-danger ps-1">
+        La descripción es requerida.
+      </p>
+    </div>
+    <button type="button" class="btn btn-secondary me-3" (click)="clean()">Limpiar</button>
+    <button type="submit" class="btn btn-dark">Editar</button>
+  </form>
 </div>

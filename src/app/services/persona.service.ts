@@ -7,7 +7,7 @@ import { Persona } from '../models/persona';
   providedIn: 'root'
 })
 export class PersonaService {
-  url = 'http://localhost:8080/persona/';
+  url = 'https://marceph.onrender.com/persona/'; //https://marceph.onrender.com  //http://localhost:8080
   constructor(private httpClient:HttpClient) { }
 
   public lista():Observable<Persona[]>{

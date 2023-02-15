@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Habilidad } from 'src/app/models/habilidad';
-import { HabilidadService } from 'src/app/services/habilidad.service';
+import { SkillService } from 'src/app/services/skill.service';
 
 @Component({
   selector: 'app-modal-add-skill',
@@ -11,47 +10,34 @@ import { HabilidadService } from 'src/app/services/habilidad.service';
 export class ModalAddSkillComponent implements OnInit {
   form:FormGroup;
 
-  habilidad: string='';
-  porcentaje: number=0;
-
-  constructor(private sHabilidad:HabilidadService, private formBuilder:FormBuilder) {
+  constructor(private sSkill:SkillService, private formBuilder:FormBuilder) {
     this.form = this.formBuilder.group({
-      habilidad:['',[Validators.required]],  
-      porcentaje:['', [Validators.required, Validators.min(0), Validators.max(100)]]
+      skill:['',[Validators.required]],  
+      percentage:['', [Validators.required, Validators.min(0), Validators.max(100)]]
     })
   }
 
   ngOnInit(): void {
   }
 
-  onCrear():void{
-    const habi = new Habilidad(this.habilidad, this.porcentaje);
-    this.sHabilidad.save(habi).subscribe(data => {
-      alert("Habilidad añadida");
+  onCreate():void{
+    this.sSkill.save(this.form.value).subscribe(data => {
       window.location.reload();
     });
   }
 
-  get Habilidad(){
-    return this.form.get("habilidad");
+  get Skill(){
+    return this.form.get("skill");
   }
 
-  get Porcentaje(){
-    return this.form.get("porcentaje");
+  get Percentage(){
+    return this.form.get("percentage");
   }
 
-  get HabilidadValid(){
-    return this.Habilidad?.touched && !this.Habilidad?.valid;
-  }
-
-  get PorcentajeValid(){
-    return this.Porcentaje?.touched && !this.Porcentaje?.valid;
-  }
-
-  onEnviar(event:Event){
+  onSend(event:Event){
     event.preventDefault;
     if(this.form.valid){
-      this.onCrear();
+      this.onCreate();
       alert("Habilidad añadida");
       window.location.reload();
     }else{
@@ -60,7 +46,7 @@ export class ModalAddSkillComponent implements OnInit {
     }
   }
 
-  limpiar():void{
+  clean():void{
     this.form.reset();
   }
 

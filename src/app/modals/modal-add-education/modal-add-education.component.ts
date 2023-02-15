@@ -13,10 +13,10 @@ export class ModalAddEducationComponent implements OnInit {
   constructor(private sEstudio:EstudioService, private formBuilder:FormBuilder) {
     this.form = this.formBuilder.group({
       estudio:['',[Validators.required]],
-      inicio:[''],
-      fin:[''],
+      inicio:['',[Validators.required]],
+      fin:['',[Validators.required]],
       description:['',[Validators.required]],
-      logo:['']
+      logo:['',[Validators.required]]
     })
   }
 
@@ -33,8 +33,20 @@ export class ModalAddEducationComponent implements OnInit {
     return this.form.get("estudio");
   }
 
+  get Inicio(){
+    return this.form.get("inicio");
+  }
+
+  get Fin(){
+    return this.form.get("fin");
+  }
+
   get Description(){
     return this.form.get("description");
+  }
+
+  get Logo(){
+    return this.form.get("logo");
   }
 
   onEnviar(event:Event){

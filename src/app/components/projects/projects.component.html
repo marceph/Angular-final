@@ -5,7 +5,7 @@
   <div class="seccion container-xxl">
     <div class="row mb-2">
       <h1 class="text-center py-5">Proyectos</h1>
-      <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#modal-add-project" style="color: #fff;"><i class="fa-solid fa-plus"></i></button>
+      <button *ngIf="modoEdit" type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#modal-add-project" style="color: #fff;"><i class="fa-solid fa-plus"></i></button>
     </div>
     <div *ngFor="let proye of proyectos" class="row mt-2">
       <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-3 col-4">
@@ -18,14 +18,13 @@
       </div>
       <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 col-2 p-0 d-flex">
         <div class="p-0">
-          <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#modal-edit-project" style="color: #fff;"><i class="fa-solid fa-pencil"></i></button>
+          <button *ngIf="modoEdit" type="submit" class="btn" style="color: #fff;" routerLink="/editProject/{{proye.id}}"><i class="fa-solid fa-pencil"></i></button>
         </div>
         <div class="p-0">
-          <button type="submit" class="btn" (click)="delete(proye.id)"><i class="fa-solid fa-trash-can" style="color: #fff;"></i></button>
+          <button *ngIf="modoEdit" type="submit" class="btn" (click)="delete(proye.id)"><i class="fa-solid fa-trash-can" style="color: #fff;"></i></button>
         </div>
       </div>
     </div>
   </div>
 </section>
 <app-modal-add-project></app-modal-add-project>
-<app-modal-edit-project></app-modal-edit-project>
